@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TrafficLightsUWP.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -22,9 +23,17 @@ namespace TrafficLightsUWP.Views
     /// </summary>
     public sealed partial class AddTrafficLightPage : Page
     {
+       public AddTrafficLigtViewModel vm { get; set; }  = new AddTrafficLigtViewModel();
         public AddTrafficLightPage()
         {
             this.InitializeComponent();
+         
+            
+        }
+
+        private void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TrafficLightsUWP.ViewModels;
+using TrafficLightsUWP.Views;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -25,6 +27,14 @@ namespace TrafficLightsUWP
         public DashboardView()
         {
             this.InitializeComponent();
+        }
+
+      
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            AddTrafficLightPage at = new AddTrafficLightPage();
+            Window.Current.Content = at;
         }
     }
 }

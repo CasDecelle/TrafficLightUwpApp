@@ -11,5 +11,6 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <controls:NavigationBar AddCommand="{Binding AddCommand}" EditCommand="{Binding EditCommand}" />
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="99,586,0,0" VerticalAlignment="Top" Width="459" Click="button_Click"/>
     </Grid>
 </Page>
