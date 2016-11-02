@@ -24,11 +24,16 @@ namespace TrafficLightsUWP.Views
     /// </summary>
     public sealed partial class EditTrafficLightView : Page
     {
-        public EditTrafficLightViewModel Vm { get; set; }
+        public EditTrafficLightViewModel VM { get; set; }
         public EditTrafficLightView()
         {
             this.InitializeComponent();
-            Vm = DataContext as EditTrafficLightViewModel;
+            VM = DataContext as EditTrafficLightViewModel;
+        }
+        
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            VM.TrafficLight = e.Parameter as TrafficLight;
         }
     }
 }
