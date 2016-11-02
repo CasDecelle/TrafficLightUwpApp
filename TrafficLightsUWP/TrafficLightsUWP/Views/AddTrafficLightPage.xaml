@@ -6,52 +6,63 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    xmlns:controls="using:TrafficLightsUWP.Controls"
     xmlns:vm="using:TrafficLightsUWP.ViewModels"
                 xmlns:models="using:TrafficLightsUWP.Models"
     DataContext="{Binding AddTrafficLigtViewModel , Source={StaticResource ViewModelLocator}}">
-
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="63" Width="498" FontSize="48" FontWeight="Bold">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <controls:NavigationBar
+            Title="{Binding Title}"
+            Grid.Row="0"
+            AddTrafficLightCommand="{Binding AddTrafficLightCommand}"
+            HomeCommand="{Binding HomeCommand}" />
+        <Grid Name="gridDashboardContent" Grid.Row="1" Margin="10,5,-10,5">
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="498" FontSize="18" FontWeight="Bold">
             <Run Text="Add Traffic Light"/>
             <Run Text="(s)"/>
-        </TextBlock>
-        <ListView x:Name="listView" ItemsSource="{x:Bind vm.NewTrafficLightList}" HorizontalAlignment="Left" Height="408" Margin="10,239,0,0" VerticalAlignment="Top" Width="1260" Background="{ThemeResource AppBarBackgroundThemeBrush}" SelectionChanged="listView_SelectionChanged">
-            <ListView.ItemTemplate>
-                <DataTemplate x:DataType="models:TrafficLight">
-                    <StackPanel Name="lvstack">
-                        <TextBlock x:Name="textBlock" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Placement Date:" VerticalAlignment="Top"/>
-                        <DatePicker  Name="dpPlacementDate" HorizontalAlignment="Left"  Date="{x:Bind PlacementDate , Mode=TwoWay}" VerticalAlignment="Top" Width="380"/>
-                        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Time Green (s):" VerticalAlignment="Top"/>
-                        <TextBox x:Name="tbgreen" Text="{x:Bind NumberOfSecsGreen, Mode=TwoWay}"  HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Top" Height="3" Width="259"/>
+            </TextBlock>
+            <ListView x:Name="listView" ItemsSource="{x:Bind vm.NewTrafficLightList}" HorizontalAlignment="Left" Height="331" Margin="10,239,0,0" VerticalAlignment="Top" Width="1260" Background="{ThemeResource AppBarBackgroundThemeBrush}" SelectionChanged="listView_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:TrafficLight">
+                        <StackPanel Name="lvstack">
+                            <TextBlock x:Name="textBlock" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Placement Date:" VerticalAlignment="Top"/>
+                            <DatePicker  Name="dpPlacementDate" HorizontalAlignment="Left"  Date="{x:Bind PlacementDate , Mode=TwoWay}" VerticalAlignment="Top" Width="380"/>
+                            <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Time Green (s):" VerticalAlignment="Top"/>
+                            <TextBox x:Name="tbgreen" Text="{x:Bind NumberOfSecsGreen, Mode=TwoWay}"  HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Top" Height="3" Width="259"/>
 
-                        <TextBlock x:Name="textBlock1_Copy" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Time Orange (s):" VerticalAlignment="Top"/>
-                        <TextBox x:Name="tborange" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{x:Bind NumberOfSecsOrange , Mode=TwoWay }" VerticalAlignment="Top" Height="3" Width="259"/>
+                            <TextBlock x:Name="textBlock1_Copy" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Time Orange (s):" VerticalAlignment="Top"/>
+                            <TextBox x:Name="tborange" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{x:Bind NumberOfSecsOrange , Mode=TwoWay }" VerticalAlignment="Top" Height="3" Width="259"/>
 
-                        <TextBlock x:Name="textBlock1_Copy1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Time Red (s):" VerticalAlignment="Top"/>
+                            <TextBlock x:Name="textBlock1_Copy1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Time Red (s):" VerticalAlignment="Top"/>
 
-                        <TextBox x:Name="tbRed" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{x:Bind NumberOfSecsRed , Mode=TwoWay }" VerticalAlignment="Top" Height="3" Width="259"/>
-                        <TextBlock x:Name="textBlock1_Copy2" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Orientation" VerticalAlignment="Top"/>
+                            <TextBox x:Name="tbRed" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{x:Bind NumberOfSecsRed , Mode=TwoWay }" VerticalAlignment="Top" Height="3" Width="259"/>
+                            <TextBlock x:Name="textBlock1_Copy2" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Orientation" VerticalAlignment="Top"/>
 
-                        <ComboBox x:Name="cbOrientation" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="259" ItemsSource="{Binding AddTrafficLigtViewModel.Dict , Source={StaticResource ViewModelLocator}}" SelectedValuePath="Key" DisplayMemberPath="Value" SelectedValue="{x:Bind Direction ,  Mode=TwoWay}"></ComboBox>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                            <ComboBox x:Name="cbOrientation" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="259" ItemsSource="{Binding AddTrafficLigtViewModel.Dict , Source={StaticResource ViewModelLocator}}" SelectedValuePath="Key" DisplayMemberPath="Value" SelectedValue="{x:Bind Direction ,  Mode=TwoWay}"></ComboBox>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
 
-       
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,98,0,0" TextWrapping="Wrap" Text="Place: " VerticalAlignment="Top"/>
-        <ComboBox x:Name="comboBox" ItemsSource="{x:Bind vm.PlacesList, Mode=OneTime}" SelectedValue="{x:Bind vm.Location ,  Mode=TwoWay}" HorizontalAlignment="Left" Margin="79,93,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBox.ItemTemplate>
-                <DataTemplate  x:DataType="models:Location">
-                    <TextBlock Text="{x:Bind Name}"></TextBlock>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
-        <Button x:Name="button" Content="+" HorizontalAlignment="Left" Margin="230,92,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="10,150,0,0" TextWrapping="Wrap" Text="Amount of Lights:" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbAmountOfLights" Text="{x:Bind vm.Amount, Mode=TwoWay}"   HorizontalAlignment="Left" Margin="169,150,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" RenderTransformOrigin="0.083,-0.443" />
-        <Button x:Name="btnSave" Content="Save" Click="{x:Bind vm.Save}" HorizontalAlignment="Left" Margin="10,678,0,0" VerticalAlignment="Top"/>
 
+            <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,98,0,0" TextWrapping="Wrap" Text="Place: " VerticalAlignment="Top"/>
+            <ComboBox x:Name="comboBox" ItemsSource="{x:Bind vm.PlacesList, Mode=OneTime}" SelectedValue="{x:Bind vm.Location ,  Mode=TwoWay}" HorizontalAlignment="Left" Margin="169,93,0,0" VerticalAlignment="Top" Width="189">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate  x:DataType="models:Location">
+                        <TextBlock Text="{x:Bind Name}"></TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="10,150,0,0" TextWrapping="Wrap" Text="Amount of Lights:" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbAmountOfLights" Text="{x:Bind vm.Amount, Mode=TwoWay}"   HorizontalAlignment="Left" Margin="169,150,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" RenderTransformOrigin="0.083,-0.443" Width="189" />
+            <Button x:Name="btnSave" Content="Save" Click="btnSave_Click" HorizontalAlignment="Left" Margin="27,575,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.271,-3.209"/>
+        </Grid>
     </Grid>
 </Page>

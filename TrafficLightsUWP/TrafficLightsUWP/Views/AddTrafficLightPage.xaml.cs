@@ -35,5 +35,15 @@ namespace TrafficLightsUWP.Views
         {
 
         }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            vm.Save();
+        }
     }
 }

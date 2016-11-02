@@ -32,10 +32,6 @@ namespace TrafficLightsUWP
 
       
 
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            AddTrafficLightPage at = new AddTrafficLightPage();
-            Window.Current.Content = at;
-        }
+      
     }
 }

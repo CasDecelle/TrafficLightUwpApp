@@ -10,9 +10,9 @@ using TrafficLightsUWP.Services;
 
 namespace TrafficLightsUWP.ViewModels
 {
-    public class AddTrafficLigtViewModel : ViewModelBase
+    public class AddTrafficLigtViewModel : BaseViewModel
     {
-        public TrafficLightService tlservice = new TrafficLightService();
+        public FakeTrafficLightService tlservice = new FakeTrafficLightService();
         LocationService locationservice = new LocationService();
         public ObservableCollection<TrafficLight> NewTrafficLightList { get; set; }
         public TrafficLight NewTrafficLight{ get; set; }
