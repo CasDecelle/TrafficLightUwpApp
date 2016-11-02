@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TrafficLightsUWP.Models;
+using TrafficLightsUWP.Services;
 using Windows.UI.Xaml.Navigation;
 
 namespace TrafficLightsUWP.ViewModels
 {
     public class AddMaintenanceViewModel : BaseViewModel
     {
+        private IMaintenanceService _maintenanceService;
         private Maintenance _newMaintenance;
 
         public Maintenance NewMaintenance
@@ -18,15 +20,16 @@ namespace TrafficLightsUWP.ViewModels
             set { Set(ref _newMaintenance, value); }
         }
 
-        public AddMaintenanceViewModel()
+        public AddMaintenanceViewModel(IMaintenanceService maintenanceService)
         {
+            _maintenanceService = maintenanceService;
             Title = "Add Maintenance";
             _newMaintenance = new Maintenance();
         }
 
         internal void SaveMaintenance()
         {
-            //save maintenance
+            _maintenanceService.SaveMaintenance(_newMaintenance);
         }
     }
 }

@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:TrafficLightsUWP.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:TrafficLightsUWP.Models"
     DataContext="{Binding DetailTrafficLightViewModel, Source={StaticResource ViewModelLocator}}"
     mc:Ignorable="d">
 
@@ -53,6 +54,25 @@
                 <TextBlock Name="labelDirection" Text="Direction: " />
                 <TextBlock Name="textBlockDirection" Text="{x:Bind VM.TrafficLight.Direction}" />
             </StackPanel>
+            <ListView Name="listViewMaintenances" ItemsSource="{x:Bind VM.Maintenances}">
+                <ListView.Header>
+                    <TextBlock Text="Maintenances:" />
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Maintenance">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Name="labelReason" Text="Reason: " />
+                                <TextBlock Text="{x:Bind Reason, Mode=OneWay}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Name="labelDescription" Text="Description: " />
+                                <TextBlock Text="{x:Bind Description, Mode=OneWay}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
             <StackPanel Orientation="Horizontal">
                 <Button
                     Name="buttonEditTrafficLight"

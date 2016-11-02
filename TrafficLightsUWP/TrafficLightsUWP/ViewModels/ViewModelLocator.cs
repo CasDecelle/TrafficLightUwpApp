@@ -34,6 +34,7 @@ namespace TrafficLightsUWP.ViewModels
 
             //Register your services used here
             SimpleIoc.Default.Register<INavigationService, NavigationService>();
+            SimpleIoc.Default.Register<IMaintenanceService, FakeMaintenanceService>();
             SimpleIoc.Default.Register<ITrafficLightService, FakeTrafficLightService>();
             SimpleIoc.Default.Register<DashboardViewModel>();
             SimpleIoc.Default.Register<EditTrafficLightViewModel>();
