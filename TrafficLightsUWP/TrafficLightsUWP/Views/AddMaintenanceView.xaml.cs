@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TrafficLightsUWP.Models;
+using TrafficLightsUWP.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -22,9 +24,15 @@ namespace TrafficLightsUWP.Views
     /// </summary>
     public sealed partial class AddMaintenanceView : Page
     {
+        public AddMaintenanceViewModel VM { get; set; }
         public AddMaintenanceView()
         {
             this.InitializeComponent();
+            VM = DataContext as AddMaintenanceViewModel;
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            VM.NewMaintenance.TrafficLight = e.Parameter as TrafficLight;
         }
     }
 }

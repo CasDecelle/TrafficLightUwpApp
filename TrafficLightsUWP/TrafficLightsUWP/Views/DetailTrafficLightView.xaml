@@ -21,6 +21,18 @@
             Grid.Row="0"
             AddTrafficLightCommand="{Binding AddTrafficLightCommand}"
             HomeCommand="{Binding HomeCommand}" />
-        <TextBlock Grid.Row="1" Text="{x:Bind VM.TrafficLight.Location.Name}" />
+        <StackPanel Name="gridDetailTrafficLight" Grid.Row="1">
+            <TextBlock Text="{x:Bind VM.TrafficLight.Location.Name}" />
+            <Button
+                Name="buttonEditTrafficLight"
+                Command="{Binding EditTrafficLightCommand}"
+                CommandParameter="{Binding TrafficLight}"
+                Content="Edit" />
+            <Button
+                Name="buttonAddMaintenance"
+                Command="{Binding AddMaintenanceCommand}"
+                CommandParameter="{Binding TrafficLight}"
+                Content="Add Maintenance" />
+        </StackPanel>
     </Grid>
 </Page>

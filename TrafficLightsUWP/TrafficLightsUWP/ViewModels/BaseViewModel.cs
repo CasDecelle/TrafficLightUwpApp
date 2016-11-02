@@ -24,14 +24,14 @@ namespace TrafficLightsUWP.ViewModels
 
         public RelayCommand HomeCommand { get { return new RelayCommand(NavigateToHome); } }
         public RelayCommand AddTrafficLightCommand { get { return new RelayCommand(NavigateToAddTrafficLight); } }
-        public RelayCommand EditTrafficLightCommand { get { return new RelayCommand(NavigateToEditTrafficLight); } }
-        public RelayCommand AddMaintenanceCommand { get { return new RelayCommand(NavigateToAddMaintenance); } }
+        public RelayCommand<TrafficLight> EditTrafficLightCommand { get { return new RelayCommand<TrafficLight>((param) => NavigateToEditTrafficLight(param)); } }
+        public RelayCommand<TrafficLight> AddMaintenanceCommand { get { return new RelayCommand<TrafficLight>((param) => NavigateToAddMaintenance(param)); } }
         public RelayCommand<TrafficLight> DetailTrafficLightCommand { get { return new RelayCommand<TrafficLight>((param) => NavigateToDetailTrafficLight(param)); } }
 
-        protected void NavigateToAddMaintenance()
+        protected void NavigateToAddMaintenance(TrafficLight trafficLight)
         {
             Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(AddMaintenanceView));
+            rootFrame.Navigate(typeof(AddMaintenanceView), trafficLight);
             Window.Current.Activate();
         }
 
@@ -49,10 +49,10 @@ namespace TrafficLightsUWP.ViewModels
             Window.Current.Activate();
         }
 
-        protected void NavigateToEditTrafficLight()
+        protected void NavigateToEditTrafficLight(TrafficLight trafficLight)
         {
             Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(EditTrafficLightView));
+            rootFrame.Navigate(typeof(EditTrafficLightView), trafficLight);
             Window.Current.Activate();
         }
 
