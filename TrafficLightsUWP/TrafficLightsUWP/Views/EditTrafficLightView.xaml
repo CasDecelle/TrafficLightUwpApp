@@ -53,15 +53,15 @@
             
 
             <TextBlock Text="Direction:" Grid.Row="4" Grid.Column="0"></TextBlock>
-            <ComboBox Name="cmbDirection" Grid.Row="4" Grid.Column="2" ItemsSource="{x:Bind Vm.DirectionsValues}" SelectedValuePath="Key" DisplayMemberPath="Value" SelectedValue="{x:Bind  Vm.SelectedDirectionDictValue, Mode=TwoWay}"></ComboBox>
+            <ComboBox Name="cmbDirection" Grid.Row="4" Grid.Column="2" ItemsSource="{x:Bind VM.DirectionsValues}" SelectedValuePath="Key" DisplayMemberPath="Value" SelectedValue="{x:Bind  VM.SelectedDirectionDictValue, Mode=TwoWay}"></ComboBox>
 
             <TextBlock Text="Status:" Grid.Row="5" Grid.Column="0"></TextBlock>
-            <ComboBox Name="cmbStatus" Grid.Row="5" Grid.Column="2" ItemsSource="{x:Bind Vm.StatusValues}" SelectedValuePath="Key" DisplayMemberPath="Value" SelectedValue="{x:Bind  Vm.SelectedStatusDictValue, Mode=TwoWay}"></ComboBox>
+            <ComboBox Name="cmbStatus" Grid.Row="5" Grid.Column="2" ItemsSource="{x:Bind VM.StatusValues}" SelectedValuePath="Key" DisplayMemberPath="Value" SelectedValue="{x:Bind  VM.SelectedStatusDictValue, Mode=TwoWay}"></ComboBox>
 
             <TextBlock Text="Is placed:" Grid.Row="6" Grid.Column="0"></TextBlock>
             <CheckBox Grid.Row="6" Grid.Column="1" IsChecked="{Binding TrafficLight.IsPlaced , Mode=TwoWay}"></CheckBox>
 
-            <Button Click="{x:Bind Vm.SaveTrafficLight}" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2">Save trafficlight</Button>
+            <Button Click="{x:Bind VM.SaveTrafficLight}" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2">Save trafficlight</Button>
             
         </Grid>
          
