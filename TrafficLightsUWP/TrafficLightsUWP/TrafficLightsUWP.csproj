@@ -102,6 +102,10 @@
     <Compile Include="Models\Maintenance.cs" />
     <Compile Include="Models\TemporaryTrafficLight.cs" />
     <Compile Include="Models\TrafficLight.cs" />
+    <Compile Include="Services\LocationService.cs" />
+    <Compile Include="Services\MaintenanceService.cs" />
+    <Compile Include="Services\TemporaryTrafficLightService.cs" />
+    <Compile Include="Services\TrafficLightService.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\DashboardViewModel.cs" />
     <Compile Include="ViewModels\EditTrafficLightViewModel.cs" />
