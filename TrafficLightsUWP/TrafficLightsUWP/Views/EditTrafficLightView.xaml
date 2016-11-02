@@ -12,7 +12,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -21,6 +21,50 @@
             AddCommand="{Binding AddCommand}"
             EditCommand="{Binding EditCommand}"
             HomeCommand="{Binding HomeCommand}" />
-        <TextBlock Grid.Row="1" Text="EDIT TEST" />
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Date placed:" Grid.Row="0" Grid.Column="0"></TextBlock>
+            <DatePicker Grid.Row="0" Grid.Column="1" Date="{Binding TrafficLight.PlacementDate}"></DatePicker>
+
+            <TextBlock Text="Green time:" Grid.Row="1" Grid.Column="0"></TextBlock>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding TrafficLight.NumberOfSecsGreen}"></TextBox>
+
+            <TextBlock Text="Red time:" Grid.Row="2" Grid.Column="0"></TextBlock>
+            <TextBox Grid.Row="2" Grid.Column="2"  Text="{Binding TrafficLight.NumberOfSecsRed}"></TextBox>
+
+            <TextBlock Text="Orange time:" Grid.Row="3" Grid.Column="0"></TextBlock>
+            <TextBox Grid.Row="3" Grid.Column="2"  Text="{Binding TrafficLight.NumberOfSecsOrange}"></TextBox>
+
+            
+
+            <TextBlock Text="Direction:" Grid.Row="4" Grid.Column="0"></TextBlock>
+            <ComboBox Name="cmbDirection" Grid.Row="4" Grid.Column="2" ItemsSource="{x:Bind Vm.DirectionsValues}" SelectedValuePath="Key" DisplayMemberPath="Value" SelectedValue="{x:Bind  Vm.SelectedDirectionDictValue, Mode=TwoWay}"></ComboBox>
+
+            <TextBlock Text="Status:" Grid.Row="5" Grid.Column="0"></TextBlock>
+            <ComboBox Name="cmbStatus" Grid.Row="5" Grid.Column="2" ItemsSource="{x:Bind Vm.StatusValues}" SelectedValuePath="Key" DisplayMemberPath="Value" SelectedValue="{x:Bind  Vm.SelectedStatusDictValue, Mode=TwoWay}"></ComboBox>
+
+            <TextBlock Text="Is placed:" Grid.Row="6" Grid.Column="0"></TextBlock>
+            <CheckBox Grid.Row="6" Grid.Column="1" IsChecked="{Binding TrafficLight.IsPlaced , Mode=TwoWay}"></CheckBox>
+
+            <Button Click="{x:Bind Vm.SaveTrafficLight}" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2">Save trafficlight</Button>
+            
+        </Grid>
+         
     </Grid>
 </Page>
