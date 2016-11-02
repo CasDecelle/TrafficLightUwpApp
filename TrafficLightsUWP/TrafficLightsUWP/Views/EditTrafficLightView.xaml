@@ -39,16 +39,16 @@
             </Grid.RowDefinitions>
 
             <TextBlock Text="Date placed:" Grid.Row="0" Grid.Column="0"></TextBlock>
-            <DatePicker Grid.Row="0" Grid.Column="1" Date="{Binding TrafficLight.PlacementDate}"></DatePicker>
+            <DatePicker Grid.Row="0" Grid.Column="1" Date="{Binding TrafficLight.PlacementDate, Mode=TwoWay}"></DatePicker>
 
             <TextBlock Text="Green time:" Grid.Row="1" Grid.Column="0"></TextBlock>
-            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding TrafficLight.NumberOfSecsGreen}"></TextBox>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding TrafficLight.NumberOfSecsGreen, Mode=TwoWay}"></TextBox>
 
             <TextBlock Text="Red time:" Grid.Row="2" Grid.Column="0"></TextBlock>
-            <TextBox Grid.Row="2" Grid.Column="2"  Text="{Binding TrafficLight.NumberOfSecsRed}"></TextBox>
+            <TextBox Grid.Row="2" Grid.Column="2"  Text="{Binding TrafficLight.NumberOfSecsRed, Mode=TwoWay}"></TextBox>
 
             <TextBlock Text="Orange time:" Grid.Row="3" Grid.Column="0"></TextBlock>
-            <TextBox Grid.Row="3" Grid.Column="2"  Text="{Binding TrafficLight.NumberOfSecsOrange}"></TextBox>
+            <TextBox Grid.Row="3" Grid.Column="2"  Text="{Binding TrafficLight.NumberOfSecsOrange, Mode=TwoWay}"></TextBox>
 
             
 
