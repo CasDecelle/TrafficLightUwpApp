@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TrafficLightsUWP.Models;
 using TrafficLightsUWP.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -14,28 +15,25 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace TrafficLightsUWP
+namespace TrafficLightsUWP.Views
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class DashboardView : Page
+    public sealed partial class DetailTrafficLightView : Page
     {
-        public DashboardViewModel VM { get; set; }
-        public DashboardView()
+        public DetailTrafficLightViewModel VM { get; set; }
+        public DetailTrafficLightView()
         {
             this.InitializeComponent();
-            VM = DataContext as DashboardViewModel;
+            VM = DataContext as DetailTrafficLightViewModel;
         }
 
-      
-
-        private void button_Click(object sender, RoutedEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            AddTrafficLightPage at = new AddTrafficLightPage();
-            Window.Current.Content = at;
+            VM.TrafficLight = e.Parameter as TrafficLight;
         }
     }
 }

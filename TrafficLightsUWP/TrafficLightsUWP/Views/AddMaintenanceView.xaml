@@ -1,0 +1,93 @@
+﻿<Page
+    x:Class="TrafficLightsUWP.Views.AddMaintenanceView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:TrafficLightsUWP.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:TrafficLightsUWP.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding AddMaintenanceViewModel, Source={StaticResource ViewModelLocator}}"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <controls:NavigationBar
+            Title="{Binding Title}"
+            Grid.Row="0"
+            AddTrafficLightCommand="{Binding AddTrafficLightCommand}"
+            HomeCommand="{Binding HomeCommand}" />
+
+        <Grid Name="gridAddMaintenance" Grid.Row="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock
+                Name="labelReason"
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="2"
+                HorizontalAlignment="Right"
+                Text="Reason" />
+            <TextBox
+                Name="textBoxReason"
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="2"
+                Text="{Binding NewMaintenance.Reason, Mode=TwoWay}" />
+            <TextBlock
+                Name="labelDate"
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="2"
+                HorizontalAlignment="Right"
+                Text="Date" />
+            <DatePicker
+                Name="datePickerDate"
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="2"
+                Date="{Binding NewMaintenance.Date, Mode=TwoWay}" />
+            <TextBlock
+                Name="labelDescription"
+                Grid.Row="2"
+                Grid.Column="0"
+                Margin="2"
+                HorizontalAlignment="Right"
+                Text="Description" />
+            <TextBox
+                Name="textBoxDescription"
+                Grid.Row="2"
+                Grid.Column="1"
+                Margin="2"
+                Text="{Binding NewMaintenance.Description, Mode=TwoWay}" />
+            <TextBlock
+                Name="labelPrice"
+                Grid.Row="3"
+                Grid.Column="0"
+                Margin="2"
+                HorizontalAlignment="Right"
+                Text="Price" />
+            <TextBox
+                Name="textBoxPrice"
+                Grid.Row="3"
+                Grid.Column="1"
+                Margin="2"
+                Text="{Binding NewMaintenance.Price, Mode=TwoWay}" />
+        </Grid>
+    </Grid>
+</Page>

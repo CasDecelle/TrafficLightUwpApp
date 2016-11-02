@@ -21,41 +21,21 @@ namespace TrafficLightsUWP.Controls
     public sealed partial class NavigationBar : UserControl
     {
 
-        public RelayCommand AddCommand
+        public RelayCommand AddTrafficLightCommand
         {
             get
             {
-                return (RelayCommand)GetValue(AddCommandProperty);
+                return (RelayCommand)GetValue(AddTrafficLightCommandProperty);
             }
 
             set
             {
-                SetValue(AddCommandProperty, value);
+                SetValue(AddTrafficLightCommandProperty, value);
             }
         }
 
-        public static readonly DependencyProperty AddCommandProperty = DependencyProperty.Register(
-          "AddCommand",
-          typeof(RelayCommand),
-          typeof(NavigationBar),
-          new PropertyMetadata(null)
-        );
-
-        public RelayCommand EditCommand
-        {
-            get
-            {
-                return (RelayCommand)GetValue(EditCommandProperty);
-            }
-
-            set
-            {
-                SetValue(EditCommandProperty, value);
-            }
-        }
-
-        public static readonly DependencyProperty EditCommandProperty = DependencyProperty.Register(
-          "EditCommand",
+        public static readonly DependencyProperty AddTrafficLightCommandProperty = DependencyProperty.Register(
+          "AddTrafficLightCommand",
           typeof(RelayCommand),
           typeof(NavigationBar),
           new PropertyMetadata(null)
@@ -77,6 +57,26 @@ namespace TrafficLightsUWP.Controls
         public static readonly DependencyProperty HomeCommandProperty = DependencyProperty.Register(
           "HomeCommand",
           typeof(RelayCommand),
+          typeof(NavigationBar),
+          new PropertyMetadata(null)
+        );
+
+        public string Title
+        {
+            get
+            {
+                return (string)GetValue(TitleProperty);
+            }
+
+            set
+            {
+                SetValue(TitleProperty, value);
+            }
+        }
+
+        public static readonly DependencyProperty TitleProperty = DependencyProperty.Register(
+          "Title",
+          typeof(string),
           typeof(NavigationBar),
           new PropertyMetadata(null)
         );

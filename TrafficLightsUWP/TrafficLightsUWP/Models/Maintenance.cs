@@ -11,6 +11,7 @@ namespace TrafficLightsUWP.Models
         public Guid Id { get; set; }
         public TrafficLight TrafficLight { get; set; }
         public string Reason { get; set; }
+        public DateTime Date { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
     }

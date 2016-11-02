@@ -2,7 +2,10 @@
     x:Class="TrafficLightsUWP.DashboardView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:controls="using:TrafficLightsUWP.Controls"
+    xmlns:converter="using:TrafficLightsUWP.Converter"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:TrafficLightsUWP"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -10,7 +13,72 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <controls:NavigationBar AddCommand="{Binding AddCommand}" EditCommand="{Binding EditCommand}" />
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="99,586,0,0" VerticalAlignment="Top" Width="459" Click="button_Click"/>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <controls:NavigationBar
+            Title="{Binding Title}"
+            Grid.Row="0"
+            AddTrafficLightCommand="{Binding AddTrafficLightCommand}"
+            HomeCommand="{Binding HomeCommand}" />
+        <Grid Name="gridDashboardContent" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <ListView
+                Name="listViewActiveTrafficLights"
+                Grid.Column="0"
+                ItemsSource="{Binding ActiveTrafficLights}"
+                SelectedItem="{Binding SelectedTrafficLight, Mode=TwoWay}">
+                <ListView.Header>
+                    <TextBlock Margin="2" Text="Active" />
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Location.Name}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ListView
+                Name="listViewInactiveTrafficLights"
+                Grid.Column="1"
+                ItemsSource="{Binding InactiveTrafficLights}"
+                SelectedItem="{Binding SelectedTrafficLight, Mode=TwoWay}">
+                <ListView.Header>
+                    <TextBlock Margin="2" Text="Inactive" />
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Location.Name}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ListView
+                Name="listViewDefectiveTrafficLights"
+                Grid.Column="2"
+                ItemsSource="{Binding DefectiveTrafficLights}"
+                SelectedItem="{Binding SelectedTrafficLight, Mode=TwoWay}">
+                <ListView.Header>
+                    <TextBlock Margin="2" Text="Defective" />
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Location.Name}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
     </Grid>
 </Page>
