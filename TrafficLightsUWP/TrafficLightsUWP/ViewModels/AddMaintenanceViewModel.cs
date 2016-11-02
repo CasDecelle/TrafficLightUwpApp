@@ -24,14 +24,9 @@ namespace TrafficLightsUWP.ViewModels
             _newMaintenance = new Maintenance();
         }
 
-        protected virtual void OnNavigatedTo(NavigationEventArgs e)
+        internal void SaveMaintenance()
         {
-            //_newMaintenance.TrafficLight = e.Content as TrafficLight;
-        }
-
-        protected virtual void OnNavigatedFrom(NavigationEventArgs e)
-        {
-            //TODO save _newMaintenance
+            //save maintenance
         }
     }
 }

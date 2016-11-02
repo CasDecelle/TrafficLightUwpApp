@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TrafficLightsUWP.Models;
+using TrafficLightsUWP.Services;
 using Windows.UI.Popups;
 
 namespace TrafficLightsUWP.ViewModels
@@ -12,6 +13,7 @@ namespace TrafficLightsUWP.ViewModels
     public class EditTrafficLightViewModel : BaseViewModel
     {
         private TrafficLight trafficLight;
+        private ITrafficLightService _trafficLightService;
 
         public TrafficLight TrafficLight
         {
@@ -79,7 +81,7 @@ namespace TrafficLightsUWP.ViewModels
         }
 
 
-        public EditTrafficLightViewModel()
+        public EditTrafficLightViewModel(ITrafficLightService trafficLightService)
         {
             this.TrafficLight = new TrafficLight
             {
@@ -92,6 +94,8 @@ namespace TrafficLightsUWP.ViewModels
                 Status = TrafficLightStatus.Defective,
                 IsPlaced = true
             };
+
+            _trafficLightService = trafficLightService;
 
             Array values = Enum.GetValues(typeof(TrafficLightDirection));
 
@@ -112,7 +116,8 @@ namespace TrafficLightsUWP.ViewModels
 
         public async void SaveTrafficLight()
         {
-           await new MessageDialog("Yeah the binding worked !!").ShowAsync();
+            _trafficLightService.SaveTrafficLight(trafficLight);
+            await new MessageDialog("The trafficlight has been saved!!! ?. ?. ?.").ShowAsync();
         }
 
 
