@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TrafficLightsUWP.Views;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -20,18 +21,21 @@ namespace TrafficLightsUWP.ViewModels
         {
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(DashboardView));
+            Window.Current.Activate();
         }
 
         public void NavigateToAddTraficLight()
         {
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(DashboardView));
+            Window.Current.Activate();
         }
 
         public void NavigateToEditTraficLight()
         {
             Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(DashboardView));
+            rootFrame.Navigate(typeof(EditTrafficLightView));
+            Window.Current.Activate();
         }
     }
 }
