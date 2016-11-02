@@ -61,7 +61,6 @@
             <TextBlock Text="Is placed:" Grid.Row="6" Grid.Column="0"></TextBlock>
             <CheckBox Grid.Row="6" Grid.Column="1" IsChecked="{Binding TrafficLight.IsPlaced , Mode=TwoWay}"></CheckBox>
 
-            <Button Click="{x:Bind VM.SaveTrafficLight}" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2">Save trafficlight</Button>
             
         </Grid>
          
