@@ -40,7 +40,7 @@ namespace TrafficLightsUWP.ViewModels
             GetData();
         }
 
-        private void GetData()
+        public void GetData()
         {
             var trafficLights = _trafficLightService.GetAllTrafficLights();
             ActiveTrafficLights = new ObservableCollection<TrafficLight>(trafficLights.Where(t => t.Status == TrafficLightStatus.Active));

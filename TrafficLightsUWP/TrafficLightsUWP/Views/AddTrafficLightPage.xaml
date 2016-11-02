@@ -62,7 +62,7 @@
             </ComboBox>
             <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="10,150,0,0" TextWrapping="Wrap" Text="Amount of Lights:" VerticalAlignment="Top"/>
             <TextBox x:Name="tbAmountOfLights" Text="{x:Bind vm.Amount, Mode=TwoWay}"   HorizontalAlignment="Left" Margin="169,150,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" RenderTransformOrigin="0.083,-0.443" Width="189" />
-            <Button x:Name="btnSave" Content="Save" Click="btnSave_Click" HorizontalAlignment="Left" Margin="27,575,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.271,-3.209"/>
+            
         </Grid>
     </Grid>
 </Page>

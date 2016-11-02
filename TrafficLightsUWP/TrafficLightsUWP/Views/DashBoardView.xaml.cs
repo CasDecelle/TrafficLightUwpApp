@@ -30,8 +30,14 @@ namespace TrafficLightsUWP
             VM = DataContext as DashboardViewModel;
         }
 
-      
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            VM.GetData();
 
-      
+        }
+
+
+
+
     }
 }
