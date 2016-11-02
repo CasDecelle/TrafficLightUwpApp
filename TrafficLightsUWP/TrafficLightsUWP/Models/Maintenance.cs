@@ -8,6 +8,7 @@ namespace TrafficLightsUWP.Models
 {
     public class Maintenance
     {
+        public Guid Id { get; set; }
         public TrafficLight TrafficLight { get; set; }
         public string Reason { get; set; }
         public string Description { get; set; }

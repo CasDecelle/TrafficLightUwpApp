@@ -87,8 +87,15 @@ namespace TrafficLightsUWP.Services
                 return;
             }
 
-            oldTrafficLight.Name = TrafficLight.Name;
-            oldTrafficLight.Coordinates = TrafficLight.Coordinates;
+            oldTrafficLight.ActiveSince = TrafficLight.ActiveSince;
+            oldTrafficLight.Direction = TrafficLight.Direction;
+            oldTrafficLight.IsPlaced = TrafficLight.IsPlaced;
+            oldTrafficLight.Location = TrafficLight.Location;
+            oldTrafficLight.NumberOfSecsGreen = TrafficLight.NumberOfSecsGreen;
+            oldTrafficLight.NumberOfSecsOrange = TrafficLight.NumberOfSecsOrange;
+            oldTrafficLight.NumberOfSecsRed = TrafficLight.NumberOfSecsRed;
+            oldTrafficLight.PlacementDate = TrafficLight.PlacementDate;
+            oldTrafficLight.Status = TrafficLight.Status;
         }
 
         public void DeleteTrafficLight(TrafficLight TrafficLight)

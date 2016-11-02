@@ -102,20 +102,15 @@
     <Compile Include="Models\Maintenance.cs" />
     <Compile Include="Models\TemporaryTrafficLight.cs" />
     <Compile Include="Models\TrafficLight.cs" />
-    <Compile Include="ViewModels\AddTrafficLight.xaml.cs">
-      <DependentUpon>AddTrafficLight.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModels\AddTrafficLigtViewModel.cs" />
+    <Compile Include="Services\LocationService.cs" />
+    <Compile Include="Services\MaintenanceService.cs" />
+    <Compile Include="Services\TemporaryTrafficLightService.cs" />
+    <Compile Include="Services\TrafficLightService.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\DashboardViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\DashboardView.xaml.cs">
       <DependentUpon>DashboardView.xaml</DependentUpon>
-    <Compile Include="Views\AddTrafficLightPage.xaml.cs">
-      <DependentUpon>AddTrafficLightPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -140,15 +135,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="ViewModels\AddTrafficLight.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\AddTrafficLightPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\MainPage.xaml">
     <Page Include="Controls\NavigationBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
