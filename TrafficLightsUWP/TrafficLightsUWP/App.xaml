@@ -7,5 +7,8 @@
     RequestedTheme="Light">
     <Application.Resources>
         <vm:ViewModelLocator x:Key="ViewModelLocator" />
+        <Style x:Key="EllipsisButton" TargetType="Button">
+            <Setter Property="Visibility" Value="Collapsed" />
+        </Style>
     </Application.Resources>
 </Application>

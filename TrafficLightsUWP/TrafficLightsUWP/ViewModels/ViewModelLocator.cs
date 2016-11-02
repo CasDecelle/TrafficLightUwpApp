@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TrafficLightsUWP.Services;
 
 namespace TrafficLightsUWP.ViewModels
 {
@@ -33,8 +34,11 @@ namespace TrafficLightsUWP.ViewModels
 
             //Register your services used here
             SimpleIoc.Default.Register<INavigationService, NavigationService>();
+            SimpleIoc.Default.Register<ITrafficLightService, FakeTrafficLightService>();
             SimpleIoc.Default.Register<DashboardViewModel>();
             SimpleIoc.Default.Register<EditTrafficLightViewModel>();
+            SimpleIoc.Default.Register<AddMaintenanceViewModel>();
+            SimpleIoc.Default.Register<DetailTrafficLightViewModel>();
 
         }
 
@@ -53,12 +57,25 @@ namespace TrafficLightsUWP.ViewModels
                 return ServiceLocator.Current.GetInstance<DashboardViewModel>();
             }
         }
-
         public EditTrafficLightViewModel EditTrafficLightViewModel
         {
             get
             {
                 return ServiceLocator.Current.GetInstance<EditTrafficLightViewModel>();
+            }
+        }    
+        public AddMaintenanceViewModel AddMaintenanceViewModel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<AddMaintenanceViewModel>();
+            }
+        }
+        public DetailTrafficLightViewModel DetailTrafficLightViewModel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<DetailTrafficLightViewModel>();
             }
         }
 

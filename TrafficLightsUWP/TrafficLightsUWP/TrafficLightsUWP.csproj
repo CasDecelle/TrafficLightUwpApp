@@ -102,18 +102,27 @@
     <Compile Include="Models\Maintenance.cs" />
     <Compile Include="Models\TemporaryTrafficLight.cs" />
     <Compile Include="Models\TrafficLight.cs" />
+    <Compile Include="Services\ITrafficLightService.cs" />
     <Compile Include="Services\LocationService.cs" />
     <Compile Include="Services\MaintenanceService.cs" />
     <Compile Include="Services\TemporaryTrafficLightService.cs" />
-    <Compile Include="Services\TrafficLightService.cs" />
+    <Compile Include="Services\FakeTrafficLightService.cs" />
+    <Compile Include="ViewModels\AddMaintenanceViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\DashboardViewModel.cs" />
+    <Compile Include="ViewModels\DetailTrafficLightViewModel.cs" />
     <Compile Include="ViewModels\EditTrafficLightViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
+    <Compile Include="Views\AddMaintenanceView.xaml.cs">
+      <DependentUpon>AddMaintenanceView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DashboardView.xaml.cs">
       <DependentUpon>DashboardView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\DetailTrafficLightView.xaml.cs">
+      <DependentUpon>DetailTrafficLightView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditTrafficLightView.xaml.cs">
       <DependentUpon>EditTrafficLightView.xaml</DependentUpon>
     </Compile>
@@ -143,9 +152,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AddMaintenanceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\DashboardView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DetailTrafficLightView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EditTrafficLightView.xaml">
       <SubType>Designer</SubType>
@@ -153,7 +170,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Helpers\" />
+    <Folder Include="Converter\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
