@@ -7,7 +7,7 @@ using TrafficLightsUWP.Models;
 
 namespace TrafficLightsUWP.Services
 {
-    public class MaintenanceService
+    public class FakeMaintenanceService : IMaintenanceService
     {
         private List<Maintenance> fakeMaintenances = new List<Maintenance>()
         {
