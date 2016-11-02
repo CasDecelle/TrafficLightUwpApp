@@ -34,5 +34,10 @@ namespace TrafficLightsUWP.Views
         {
             VM.NewMaintenance.TrafficLight = e.Parameter as TrafficLight;
         }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            VM.SaveMaintenance();
+        }
     }
 }
