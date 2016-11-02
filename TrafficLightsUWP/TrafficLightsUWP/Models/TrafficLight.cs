@@ -11,7 +11,7 @@ namespace TrafficLightsUWP.Models
     {
         public Guid Id { get; set; }
         public Location Location { get; set; }
-        public DateTime PlacementDate { get; set; }
+        public DateTimeOffset PlacementDate { get; set; }
         public TrafficLightStatus Status { get; set; }
         public bool IsPlaced { get; set; }
         public int NumberOfSecsGreen { get; set; }
