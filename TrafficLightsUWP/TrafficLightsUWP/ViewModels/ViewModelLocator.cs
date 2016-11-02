@@ -33,7 +33,7 @@ namespace TrafficLightsUWP.ViewModels
 
             //Register your services used here
             SimpleIoc.Default.Register<INavigationService, NavigationService>();
-            //SimpleIoc.Default.Register<StartPageViewModel>();
+            SimpleIoc.Default.Register<DashboardViewModel>();
 
         }
 
@@ -44,14 +44,14 @@ namespace TrafficLightsUWP.ViewModels
         // <value>
         // The StartPage view model.
         // </value>
-        /*
-        public StartPageViewModel StartPageInstance
+        
+        public DashboardViewModel DashboardViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<StartPageViewModel>();
+                return ServiceLocator.Current.GetInstance<DashboardViewModel>();
             }
-        }*/
+        }
 
         // <summary>
         // The cleanup.
