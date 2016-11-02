@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using TrafficLightsUWP.Models;
 using TrafficLightsUWP.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -22,26 +21,29 @@ namespace TrafficLightsUWP.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class EditTrafficLightView : Page
+    public sealed partial class AddTrafficLightPage : Page
     {
-        public EditTrafficLightViewModel VM { get; set; }
-        public EditTrafficLightView()
+       public AddTrafficLigtViewModel vm { get; set; }  = new AddTrafficLigtViewModel();
+        public AddTrafficLightPage()
         {
             this.InitializeComponent();
-            VM = DataContext as EditTrafficLightViewModel;
+         
+            
         }
-        
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+
+        private void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            VM.TrafficLight = e.Parameter as TrafficLight;
+
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
 
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            VM.SaveTrafficLight();
+            vm.Save();
         }
-
-
     }
 }

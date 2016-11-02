@@ -17,7 +17,16 @@ namespace TrafficLightsUWP.Models
         public int NumberOfSecsGreen { get; set; }
         public int NumberOfSecsOrange { get; set; }
         public int NumberOfSecsRed { get; set; }
-        public TrafficLightDirection Direction { get; set; }
+       
+
+        private object _direction;
+
+        public object Direction
+        {
+            get { return _direction; }
+            set { _direction = value; }
+        }
+
         public DateTime ActiveSince { get; set; }
     }
     public enum TrafficLightStatus

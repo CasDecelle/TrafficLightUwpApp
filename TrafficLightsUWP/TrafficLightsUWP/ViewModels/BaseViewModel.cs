@@ -45,7 +45,7 @@ namespace TrafficLightsUWP.ViewModels
         protected void NavigateToAddTrafficLight()
         {
             Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(DashboardView));
+            rootFrame.Navigate(typeof(AddTrafficLightPage));
             Window.Current.Activate();
         }
 

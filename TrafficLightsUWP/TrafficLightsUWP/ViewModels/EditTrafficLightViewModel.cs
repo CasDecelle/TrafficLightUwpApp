@@ -114,10 +114,10 @@ namespace TrafficLightsUWP.ViewModels
 
         }
 
-        public async void SaveTrafficLight()
+        public void SaveTrafficLight()
         {
             _trafficLightService.SaveTrafficLight(trafficLight);
-            await new MessageDialog("The trafficlight has been saved!!! ?. ?. ?.").ShowAsync();
+           
         }
 
 
