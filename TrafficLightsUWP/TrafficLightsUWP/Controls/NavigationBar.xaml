@@ -30,11 +30,6 @@
                 FontSize="10"
                 Icon="Add"
                 Label="Traffic Light" />
-            <AppBarButton
-                Command="{Binding AddMaintenanceCommand}"
-                FontSize="10"
-                Icon="Add"
-                Label="Maintenance" />
         </CommandBar>
     </Grid>
 </UserControl>

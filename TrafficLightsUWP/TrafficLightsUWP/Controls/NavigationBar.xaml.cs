@@ -60,25 +60,6 @@ namespace TrafficLightsUWP.Controls
           typeof(NavigationBar),
           new PropertyMetadata(null)
         );
-        public RelayCommand AddMaintenanceCommand
-        {
-            get
-            {
-                return (RelayCommand)GetValue(AddMaintenanceCommandProperty);
-            }
-
-            set
-            {
-                SetValue(AddMaintenanceCommandProperty, value);
-            }
-        }
-
-        public static readonly DependencyProperty AddMaintenanceCommandProperty = DependencyProperty.Register(
-          "AddMaintenanceCommand",
-          typeof(RelayCommand),
-          typeof(NavigationBar),
-          new PropertyMetadata(null)
-        );
 
         public string Title
         {

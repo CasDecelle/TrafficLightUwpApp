@@ -19,7 +19,6 @@
         <controls:NavigationBar
             Title="{Binding Title}"
             Grid.Row="0"
-            AddMaintenanceCommand="{Binding AddMaintenanceCommand}"
             AddTrafficLightCommand="{Binding AddTrafficLightCommand}"
             HomeCommand="{Binding HomeCommand}" />
 

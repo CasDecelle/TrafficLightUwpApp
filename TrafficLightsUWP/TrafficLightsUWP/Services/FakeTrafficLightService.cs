@@ -7,7 +7,7 @@ using TrafficLightsUWP.Models;
 
 namespace TrafficLightsUWP.Services
 {
-    public class TrafficLightService
+    public class FakeTrafficLightService : ITrafficLightService
     {
 
         private List<TrafficLight> fakeTrafficLights = new List<TrafficLight>()
@@ -51,6 +51,47 @@ namespace TrafficLightsUWP.Services
                NumberOfSecsOrange= 7,
                NumberOfSecsRed = 1000,
                Location =  new Location { Id = new Guid("7b1911aa-933f-48ce-b431-5bbff70c4072"), Name = "McDo Halle", Coordinates = null }
+
+           },
+           new TrafficLight
+           {
+               Id = new Guid("7b1911aa-933f-48ce-b431-5bbaf70c4080"),
+               ActiveSince = DateTime.Now,
+               Direction = TrafficLightDirection.E,
+               IsPlaced = true,
+               PlacementDate = DateTime.Now,
+               Status = TrafficLightStatus.Active,
+               NumberOfSecsGreen = 30,
+               NumberOfSecsOrange= 7,
+               NumberOfSecsRed = 1000,
+               Location = new Location { Id = new Guid("7b1911aa-933f-48ce-b431-5baff70c4070"), Name = "Speeltuinstraat Halle", Coordinates = null }
+
+           },
+           new TrafficLight
+           {
+               Id = new Guid("7b1911aa-933f-48ce-b431-5bbff70c4081"),
+               ActiveSince = DateTime.Now,
+               Direction = TrafficLightDirection.N,
+               IsPlaced = false,
+               Status = TrafficLightStatus.Inactive,
+               NumberOfSecsGreen = 30,
+               NumberOfSecsOrange= 7,
+               NumberOfSecsRed = 1000,
+               Location = new Location { Id = new Guid("7b1911aa-933f-48ce-b431-5bbff70c4071"), Name = "Boerenmarkt Halle", Coordinates = null }
+
+           },
+           new TrafficLight
+           {
+               Id = new Guid("7b1971aa-933f-43ce-b431-5bbff70c4082"),
+               ActiveSince = DateTime.Now,
+               Direction = TrafficLightDirection.S,
+               IsPlaced = true,
+               PlacementDate = DateTime.Now,
+               Status = TrafficLightStatus.Defective,
+               NumberOfSecsGreen = 30,
+               NumberOfSecsOrange= 7,
+               NumberOfSecsRed = 1000,
+               Location =  new Location { Id = new Guid("7b1911aa-963f-48ce-b431-5bbff70c1072"), Name = "Quick Halle", Coordinates = null }
 
            }
         };

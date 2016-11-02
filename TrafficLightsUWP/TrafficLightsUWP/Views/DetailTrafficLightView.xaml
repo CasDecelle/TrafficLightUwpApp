@@ -1,12 +1,12 @@
 ﻿<Page
-    x:Class="TrafficLightsUWP.Views.EditTrafficLightView"
+    x:Class="TrafficLightsUWP.Views.DetailTrafficLightView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="using:TrafficLightsUWP.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:TrafficLightsUWP.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    DataContext="{Binding EditTrafficLightViewModel, Source={StaticResource ViewModelLocator}}"
+    DataContext="{Binding DetailTrafficLightViewModel, Source={StaticResource ViewModelLocator}}"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -17,9 +17,10 @@
         </Grid.RowDefinitions>
 
         <controls:NavigationBar
+            Title="{Binding Title}"
             Grid.Row="0"
             AddTrafficLightCommand="{Binding AddTrafficLightCommand}"
             HomeCommand="{Binding HomeCommand}" />
-        <TextBlock Grid.Row="1" Text="EDIT TEST" />
+        <TextBlock Grid.Row="1" Text="{x:Bind VM.TrafficLight.Location.Name}" />
     </Grid>
 </Page>
