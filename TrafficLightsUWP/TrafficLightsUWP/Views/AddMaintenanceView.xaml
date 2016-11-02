@@ -29,6 +29,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -37,54 +38,58 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock
-                Name="labelReason"
+                Name="labelTrafficLight"
                 Grid.Row="0"
+                Text="{Binding NewMaintenance.TrafficLight.Location.Name}" />
+            <TextBlock
+                Name="labelReason"
+                Grid.Row="1"
                 Grid.Column="0"
                 Margin="2"
                 HorizontalAlignment="Right"
                 Text="Reason" />
             <TextBox
                 Name="textBoxReason"
-                Grid.Row="0"
+                Grid.Row="1"
                 Grid.Column="1"
                 Margin="2"
                 Text="{Binding NewMaintenance.Reason, Mode=TwoWay}" />
             <TextBlock
                 Name="labelDate"
-                Grid.Row="1"
+                Grid.Row="2"
                 Grid.Column="0"
                 Margin="2"
                 HorizontalAlignment="Right"
                 Text="Date" />
             <DatePicker
                 Name="datePickerDate"
-                Grid.Row="1"
+                Grid.Row="2"
                 Grid.Column="1"
                 Margin="2"
                 Date="{Binding NewMaintenance.Date, Mode=TwoWay}" />
             <TextBlock
                 Name="labelDescription"
-                Grid.Row="2"
+                Grid.Row="3"
                 Grid.Column="0"
                 Margin="2"
                 HorizontalAlignment="Right"
                 Text="Description" />
             <TextBox
                 Name="textBoxDescription"
-                Grid.Row="2"
+                Grid.Row="3"
                 Grid.Column="1"
                 Margin="2"
                 Text="{Binding NewMaintenance.Description, Mode=TwoWay}" />
             <TextBlock
                 Name="labelPrice"
-                Grid.Row="3"
+                Grid.Row="4"
                 Grid.Column="0"
                 Margin="2"
                 HorizontalAlignment="Right"
                 Text="Price" />
             <TextBox
                 Name="textBoxPrice"
-                Grid.Row="3"
+                Grid.Row="4"
                 Grid.Column="1"
                 Margin="2"
                 Text="{Binding NewMaintenance.Price, Mode=TwoWay}" />

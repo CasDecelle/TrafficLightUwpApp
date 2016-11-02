@@ -23,16 +23,48 @@
             HomeCommand="{Binding HomeCommand}" />
         <StackPanel Name="gridDetailTrafficLight" Grid.Row="1">
             <TextBlock Text="{x:Bind VM.TrafficLight.Location.Name}" />
-            <Button
-                Name="buttonEditTrafficLight"
-                Command="{Binding EditTrafficLightCommand}"
-                CommandParameter="{Binding TrafficLight}"
-                Content="Edit" />
-            <Button
-                Name="buttonAddMaintenance"
-                Command="{Binding AddMaintenanceCommand}"
-                CommandParameter="{Binding TrafficLight}"
-                Content="Add Maintenance" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    Name="labelIsPlaced"
+                    VerticalAlignment="Center"
+                    Text="Is placed: " />
+                <CheckBox
+                    Name="checkBoxIsPlaced"
+                    IsChecked="{Binding TrafficLight.IsPlaced}"
+                    IsEnabled="False" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Name="labelStatus" Text="Status: " />
+                <TextBlock Name="textBlockStatuc" Text="{x:Bind VM.TrafficLight.Status}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Name="labelSecsGreen" Text="# of secs green: " />
+                <TextBlock Name="textBlockSecsGreen" Text="{x:Bind VM.TrafficLight.NumberOfSecsGreen}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Name="labelSecsOrange" Text="# of secs orange: " />
+                <TextBlock Name="textBlockSecsOrange" Text="{x:Bind VM.TrafficLight.NumberOfSecsOrange}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Name="labelSecsRed" Text="# of secs red: " />
+                <TextBlock Name="textBlockSecsRed" Text="{x:Bind VM.TrafficLight.NumberOfSecsRed}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Name="labelDirection" Text="Direction: " />
+                <TextBlock Name="textBlockDirection" Text="{x:Bind VM.TrafficLight.Direction}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button
+                    Name="buttonEditTrafficLight"
+                    Command="{Binding EditTrafficLightCommand}"
+                    CommandParameter="{Binding TrafficLight}"
+                    Content="Edit" />
+                <Button
+                    Name="buttonAddMaintenance"
+                    Command="{Binding AddMaintenanceCommand}"
+                    CommandParameter="{Binding TrafficLight}"
+                    Content="Add Maintenance" />
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>
