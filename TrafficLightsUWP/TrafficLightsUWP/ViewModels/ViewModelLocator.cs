@@ -35,6 +35,7 @@ namespace TrafficLightsUWP.ViewModels
             SimpleIoc.Default.Register<INavigationService, NavigationService>();
             SimpleIoc.Default.Register<DashboardViewModel>();
             SimpleIoc.Default.Register<EditTrafficLightViewModel>();
+            SimpleIoc.Default.Register<AddMaintenanceViewModel>();
 
         }
 
@@ -59,6 +60,15 @@ namespace TrafficLightsUWP.ViewModels
             get
             {
                 return ServiceLocator.Current.GetInstance<EditTrafficLightViewModel>();
+            }
+        }
+        
+
+        public AddMaintenanceViewModel AddMaintenanceViewModel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<AddMaintenanceViewModel>();
             }
         }
 

@@ -12,14 +12,14 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <controls:NavigationBar
             Grid.Row="0"
-            AddCommand="{Binding AddCommand}"
-            EditCommand="{Binding EditCommand}"
+            AddMaintenanceCommand="{Binding AddMaintenanceCommand}"
+            AddTrafficLightCommand="{Binding AddTrafficLightCommand}"
             HomeCommand="{Binding HomeCommand}" />
         <TextBlock Grid.Row="1" Text="EDIT TEST" />
     </Grid>

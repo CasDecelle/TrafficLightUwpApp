@@ -10,21 +10,31 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource AppBarBackgroundThemeBrush}">
-        <AppBar>
-            <StackPanel Orientation="Horizontal">
-                <AppBarButton
-                    Command="{Binding HomeCommand}"
-                    Content="Home"
-                    Icon="Home" />
-                <AppBarButton
-                    Command="{Binding AddCommand}"
-                    Content="Add"
-                    Icon="Add" />
-                <AppBarButton
-                    Command="{Binding EditCommand}"
-                    Content="Edit"
-                    Icon="Edit" />
-            </StackPanel>
-        </AppBar>
+        <CommandBar
+            Height="88"
+            IsOpen="True"
+            IsSticky="True">
+            <CommandBar.Content>
+                <TextBlock
+                    Margin="8"
+                    FontSize="20"
+                    Text="{Binding Title}" />
+            </CommandBar.Content>
+            <AppBarButton
+                Command="{Binding HomeCommand}"
+                FontSize="10"
+                Icon="Home"
+                Label="Dashboard" />
+            <AppBarButton
+                Command="{Binding AddTrafficLightCommand}"
+                FontSize="10"
+                Icon="Add"
+                Label="Traffic Light" />
+            <AppBarButton
+                Command="{Binding AddMaintenanceCommand}"
+                FontSize="10"
+                Icon="Add"
+                Label="Maintenance" />
+        </CommandBar>
     </Grid>
 </UserControl>

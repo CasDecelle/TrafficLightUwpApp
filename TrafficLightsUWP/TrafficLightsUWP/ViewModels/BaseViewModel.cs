@@ -13,25 +13,41 @@ namespace TrafficLightsUWP.ViewModels
 {
     public class BaseViewModel : ViewModelBase
     {
+        private string _title;
+
+        public string Title
+        {
+            get { return _title; }
+            set { Set(ref _title, value); }
+        }
+
         public RelayCommand HomeCommand { get { return new RelayCommand(NavigateToHome); } }
-        public RelayCommand AddCommand { get { return new RelayCommand(NavigateToAddTraficLight); } }
-        public RelayCommand EditCommand { get { return new RelayCommand(NavigateToEditTraficLight); } }
+        public RelayCommand AddTrafficLightCommand { get { return new RelayCommand(NavigateToAddTraficLight); } }
+        public RelayCommand EditTrafficLightCommand { get { return new RelayCommand(NavigateToEditTraficLight); } }
+        public RelayCommand AddMaintenanceCommand { get { return new RelayCommand(NavigateToAddMaintenance); } }
 
-        public void NavigateToHome()
+        private void NavigateToAddMaintenance()
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(AddMaintenanceView));
+            Window.Current.Activate();
+        }
+
+        private void NavigateToHome()
         {
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(DashboardView));
             Window.Current.Activate();
         }
 
-        public void NavigateToAddTraficLight()
+        private void NavigateToAddTraficLight()
         {
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(DashboardView));
             Window.Current.Activate();
         }
 
-        public void NavigateToEditTraficLight()
+        private void NavigateToEditTraficLight()
         {
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(EditTrafficLightView));
